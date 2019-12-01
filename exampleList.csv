@@ -1,0 +1,5 @@
+Index, filename.extension, objectname,  metadata, group
+1, artwork/file1.jpg, artwork1, metadata, ABCD
+2, artwork/file2.mp3, artwork2, metadata, BC
+3, www.hyperlink.html, artwork3, metadata, BD
+4, artwork/audio/file4.mp4, artwork4, metadata, BCD

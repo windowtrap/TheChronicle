@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>TheChronicle</title>
-		<style>
-			body { margin: 0; }
-			canvas { width: 100%; height: 100%; position:fixed}
 
-		</style>
-	</head>
-	<body>
-    <div style="
-    position: fixed;
-    overflow: hidden;
+<head>
+	<meta charset="utf-8">
+	<title>TheChronicle v1.1</title>
+	<style>
+		body { margin: 0; }
+			canvas { width: 100%; height: 100%; position:fixed; background-color: #ffffff}
+	</style>
+	<link rel="stylesheet" href="stylesheet.css">
+</head>
 
-    ">
-    		<script src="js/three.js"></script>
+<body>
+	<div id="container" style="position: fixed; overflow: hidden;"></div>
+	<div id="overlay">
+		<div class="centerDiv">
+			<button id="startButton">Enter the Chronicle</button>
+		</div>
+	</div>
+	<!-- Need to procedurally get the text inside the js file-->
+
+	<script src="js/three.js"></script>
+	<script src="js/p5.js"></script>
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/three.text-texture.js"></script>
+
+	<video id="video" loop crossOrigin="anonymous" playsinline style="display:none">
+		<source src="artworks/video3.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+	</video>
 		<script src="sketch.js"></script>
-    </div>
+</body>
 
-    <div style="height: 10000px;"></div>
-
-
-
-
-
-
-	</body>
 </html>

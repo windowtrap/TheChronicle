@@ -1,6 +1,6 @@
 var scene, renderer;
 
-let _x = 0;
+let x = 0;
 let _y = 0;
 let _z = 0;
 var splineCamera;
@@ -205,7 +205,7 @@ function processImages() {
     // a file that is an image
     let sx = imgArray[i];
     let nx = sx.match(/\d+/g).map(Number);
-    texture[i] = new THREE.TextureLoader().load('artworks/_art_object_' + [nx] + '.jpg');
+    texture[i] = new THREE.TextureLoader().load('artworks/art-object-' + [nx] + '.jpg');
     texture[i].wrapS = THREE.RepeatWrapping;
     texture[i].wrapT = THREE.RepeatWrapping;
     texture[i].repeat.set(1, 1)

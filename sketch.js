@@ -94,7 +94,7 @@ function extractData(currentVersion, objIndex){
 
     let currentIndex = indexList[objIndex];
     let newScrollPos = ((currentVersionArray.indexOf(currentIndex)-0.5)/currentVersionArray.length)*10000;
-    console.log("scroll"+newScrollPos);
+
 
     window.pageYOffset = 0;
     document.documentElement.scrollTop = newScrollPos;
@@ -143,6 +143,8 @@ function firstStartup() {
     transparent: true,
     opacity: 0.1
   });
+
+
   majorWHoleMat = new THREE.MeshLambertMaterial({
     shading: THREE.FlatShading,
     color: 0xababab,
@@ -150,20 +152,20 @@ function firstStartup() {
     opacity: 0.1
   });
 
-  dotMaterial = new THREE.MeshPhongMaterial({
+  dotMaterial = new THREE.MeshLambertMaterial({
     color: 0x7a7a7a,
     transparent: true,
     opacity: 0.8
   });
 
-  audioMaterial = new THREE.MeshPhongMaterial({
+  audioMaterial = new THREE.MeshBasicMaterial({
     color: 0xff2200
   });
 
 dotSphere = new THREE.SphereBufferGeometry(0.03, 10, 10);
 
-  setTimeout(init, 50);
-  setTimeout(animate, 50);
+  init();
+  setTimeout();
 }
 
 function initArrays(){
@@ -368,12 +370,12 @@ function processAudio() {
 
     audioLoader.load('artworks/audio.mp3', function(buffer) {
       sound.setBuffer(buffer);
-      sound.setRefDistance(10);
+      sound.setRefDistance(5);
       sound.play();
     });
     // finally add the sound to the mesh
 
-    let audioSphere = new THREE.SphereBufferGeometry(0.1, 0.1, 10);
+    let audioSphere = new THREE.SphereBufferGeometry(0.3, 0.3, 30);
 
     audioHome[i] = new THREE.Mesh(audioSphere, audioMaterial);
     audioHome[i].name = sx;
@@ -486,7 +488,7 @@ function onMouseClick(event) {
   let intersects = raycaster.intersectObjects(clickableObjects, true);
 
   if (intersects.length > 0) {
-    for (let i = 0; i < intersects.length; i++) {
+    for (let i = 0; i < 1; i++) {
       let currentName = intersects[i].object.name;
       console.log(currentName);
       let currentIndex = indexList.indexOf(currentName);
@@ -501,6 +503,7 @@ function onMouseClick(event) {
       setTimeout(init, 5);
       setTimeout(animate, 5);
 
+
       // TODO - condense the above
 
 
@@ -514,9 +517,7 @@ function onMouseClick(event) {
 
 function onScroll(event) {
   scrollTop = (window.pageYOffset || document.documentElement.scrollTop) / 10000;
-  //console.log(scrollTop);
-  console.log(window.pageYOffset);
-console.log(document.documentElement.scrollTop);
+
 }
 
 function runDisposal(){
@@ -528,7 +529,6 @@ function runDisposal(){
   scene.remove(curveObject);
   scene.remove(curveObject2);
 
-console.log(dot);
 
   for (let i = 0; i < dot.length; i++){
     let tempMesh = dot[i];
